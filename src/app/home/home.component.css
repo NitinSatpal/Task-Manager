@@ -1,0 +1,46 @@
+h2 { 
+  color: #333;
+  font-weight: 700; 
+  /*font: 14px "Helvetica Neue",Arial,Helvetica,sans-serif; */
+  line-height: 20px;
+  font-size: 12pt;
+}
+
+.board {
+  background-color: silver;
+  height: 72px;
+  width: 280px;
+  color: white;
+  float: left;
+  margin-right: 16px;
+  margin-bottom: 16px;
+  text-align: left;
+  padding: 9pt 8px;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.board .title {
+  font-weight: 700; 
+  /*font: 14px "Helvetica Neue",Arial,Helvetica,sans-serif; */
+  line-height: 20px;
+  font-size: 12pt;
+}
+
+.add-board {
+  background-color: #e2e4e6;
+  color: #8c8c8c;
+}
+
+.boardContainer {
+  margin-top: 70px;
+}
+.boardHeading {
+  display: inline;
+}
+.createBoardBtn {
+  display: inline;
+}
+.modal-footer {
+  border: none !important;
+}

@@ -1,0 +1,30 @@
+<div class="boards-wrapper">
+	<h2 class="boardHeading">Boards</h2>
+	<button class="btn btn-success btn-lg pull-right createBoardBtn" data-toggle="modal" data-target="#createBoard" >
+    	<span class="title">Create a new board...</span>
+  	</button>
+	<div id="boards" class="boardContainer">
+	  	<a class="board" *ngFor="let board of boards" [routerLink]="['/board', board._id]">
+	    	<span class="title">{{board?.title}}</span>
+	  	</a>
+	</div>
+
+	<div class="modal fade" id="createBoard" role="dialog">
+	    <div class="modal-dialog modal-md">
+	      	<div class="modal-content">
+	        	<div class="modal-header">
+	          		<button type="button" class="close" data-dismiss="modal">&times;</button>
+	          		<h4 class="modal-title">New Board Creation</h4>
+	        	</div>
+	        	<div class="modal-body">
+	        		<h3> Board Title</h3>
+	          		<input [(ngModel)]="boardTitle" type="text" name="boardTitle" class="form-control" required placeholder="Title">
+	        	</div>
+	        	<div class="modal-footer">
+	        		<button type="button" class="btn btn-primary" (click)="addBoard()" data-dismiss="modal">Create</button>
+	          		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        	</div>
+	      	</div>
+	    </div>
+	</div>
+</div>

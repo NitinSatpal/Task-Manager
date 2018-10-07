@@ -1,0 +1,12 @@
+<li class="task" 
+    [attr.task-id]="task._id"
+    [attr.task-order]="task.order"
+    (click)="editTask()">
+    <span [innerHtml]="task.title" [style.display]="editingTask ? 'none' : ''">
+    </span>
+    <textarea
+        [style.display]="editingTask ? '' : 'none' "
+        (keydown)="blurOnEnter($event)"
+        (blur)="updateTask()"
+        [(ngModel)]="task.title" ></textarea>
+</li>

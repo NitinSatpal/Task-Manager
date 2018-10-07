@@ -1,0 +1,7 @@
+.headingDiv {
+	text-align: center;
+}
+.headingDiv .headingStyle {
+	color: grey;
+	font-weight: 400;
+}

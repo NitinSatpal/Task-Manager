@@ -1,0 +1,32 @@
+<div class="list" 
+    [attr.list-id]="list._id"
+    [attr.list-order]="list.order">
+    <div class="list-header">
+        <h4 [innerHtml]="list.title"
+            [style.display]="editingList ?'none' : '' "
+            (click)="editList()" ></h4>
+        <input  
+            [style.display]="editingList ?'' : 'none' "
+            (blur)="updateListOnBlur()"
+            (keyup)="addListOnEnter($event)"
+            [(ngModel)]="list.title" />
+    </div>
+    <ul class="task-list" [attr.list-id]="list._id">
+        <li *ngFor="let task of tasks | where : { listId: list._id } | orderBy : 'order'">
+            <auzmor-task [task]="task"></auzmor-task>
+        </li>
+    </ul>
+        <div class="add-task" 
+            (click)="enableAddTask()" >
+            <span [style.display]="addingTask ? 'none' : ''" >
+                Add a task...
+            </span>
+            
+            <input  
+            [style.display]="addingTask ? '' : 'none' "
+            [attr.autofocus]="addingTask"
+            (keyup)="addTaskOnEnter($event)"
+            (blur)="addTaskOnBlur()"
+            [(ngModel)]="addTaskText" />
+        </div>
+</div>

@@ -1,0 +1,41 @@
+<div *ngIf="board" class="board-title container">
+  <div class="row">
+    <div class="col-sm-1 col-md-1 col-lg-1 col-xs-1">
+      <i class="fa fa-arrow-left" [routerLink]="['/']"></i>
+    </div>
+    <div class="col-sm-8 col-md-8 col-lg-8 col-xs-8">
+      <span [style.display]="editingTilte ? 'none' : ''" (click)="editTitle()">{{ board?.title }}</span>
+      <input  
+      [style.display]="editingTilte ? '' : 'none' "
+      (keyup)="blurOnEnter($event)"
+      (blur)="updateBoard()"
+      [(ngModel)]="board.title" />
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2 col-xs-2 deleteBoard pull-right" (click)="deleteBoard()">
+      <i class="fa fa-trash"></i>
+      <span> Delete Board</span>
+    </div>
+  </div>
+
+  <div class="pull-right add-list"
+       (click)="enableAddList()" >
+    <span [style.display]="addingList ? 'none' : ''" ><i class="fa fa-plus-circle"></i> Add a list...</span>
+   
+    <input  
+      [style.display]="addingList ? '' : 'none' "
+      (keyup)="addListOnEnter($event)"
+      (blur)="addListOnBlur()"
+      [(ngModel)]="addListText" />
+  </div>
+</div>
+
+<div *ngIf="board" id="main">
+  <ul class="flex-container wrap">
+    <li *ngFor="let list of board.lists | orderBy : 'order'" class="sortable-list flex-item">
+      <auzmor-list [list]="list"
+          (onAddTask)="addTask($event)"
+          [tasks]="board.tasks">
+      </auzmor-list>
+    </li>
+  </ul>
+</div>
